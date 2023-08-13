@@ -28,18 +28,17 @@ IPL Winner Predictor is a web application built using Streamlit that predicts th
 ## Project Structure
 
 - `app.py`: Main Streamlit application script.
-- `pipe. joblib`: Pre-trained machine learning pipeline for prediction.
+- `pipe.joblib`: Pre-trained machine learning pipeline for prediction.
 - `teams_logos/`: Folder containing team logos.
 - `requirements.txt`: List of required Python packages.
 
 ## Screenshots
 
-![Screenshot 2023-08-13 191950](https://github.com/tharunnayak14/IPL-Match-Winner-Prediction/assets/52671445/9d7de9e2-a180-40eb-b513-d7a573151dad)
-![Screenshot 2023-08-13 192109](https://github.com/tharunnayak14/IPL-Match-Winner-Prediction/assets/52671445/cdd524e5-a622-4179-872e-f3470e1d0b8a)
-
+![Screenshot 1](https://github.com/tharunnayak14/IPL-Match-Winner-Prediction/blob/main/assets/screenshot1.png)
+![Screenshot 2](https://github.com/tharunnayak14/IPL-Match-Winner-Prediction/blob/main/assets/screenshot2.png)
 
 ## Author
 
 - Tharun Nayak
-- GitHub: [Your GitHub Profile]([https://github.com/yourusernam](https://github.com/tharunnayak14)e)
+- GitHub: [tharunnayak14](https://github.com/tharunnayak14)
 
