@@ -1,5 +1,8 @@
 # IPL Winner Predictor
 
+
+![Screenshot 1](https://github.com/tharunnayak14/IPL-Match-Winner-Prediction/blob/main/assets/screenshot1.png)
+
 IPL Winner Predictor is a web application built using Streamlit that predicts the probability of a cricket team winning an IPL match based on input parameters such as batting team, bowling team, host city, current score, overs completed, wickets, and more.
 
 ## Features
@@ -33,12 +36,4 @@ IPL Winner Predictor is a web application built using Streamlit that predicts th
 - `requirements.txt`: List of required Python packages.
 
 ## Screenshots
-
-![Screenshot 1](https://github.com/tharunnayak14/IPL-Match-Winner-Prediction/blob/main/assets/screenshot1.png)
 ![Screenshot 2](https://github.com/tharunnayak14/IPL-Match-Winner-Prediction/blob/main/assets/screenshot2.png)
-
-## Author
-
-- Tharun Nayak
-- GitHub: [tharunnayak14](https://github.com/tharunnayak14)
-
