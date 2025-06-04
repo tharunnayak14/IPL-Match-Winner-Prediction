@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+.data/
+
+# exclude large raw data
+data/IPL_Ball_by_Ball_2008_2022.csv
+data/IPL_Matches_2008_2022.csv

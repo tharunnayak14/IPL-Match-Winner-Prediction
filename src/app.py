@@ -1,8 +1,9 @@
 import streamlit as st
 import joblib
 import pandas as pd
+from pathlib import Path
 
-teams = ['Rajasthan Royals ',
+teams = ['Rajasthan Royals',
          'Royal Challengers Bangalore',
          'Sunrisers Hyderabad',
          'Delhi Capitals',
@@ -13,17 +14,21 @@ teams = ['Rajasthan Royals ',
          'Punjab Kings',
          'Mumbai Indians']
 
-logos = {'Mumbai Indians': "MI.png",
-         'Rajasthan Royals': "RR.png",
-         'Royal Challengers Bangalore': "RCB.png",
-         'Sunrisers Hyderabad': "SRH.png",
-         'Delhi Capitals': "DC.png",
-         'Chennai Super Kings': "CSK.png",
-         'Gujarat Titans': "GT.png",
-         'Lucknow Super Giants': "LSG.png",
-         'Kolkata Knight Riders': "KKR.png",
-         'Punjab Kings': "PBKS.png",
-         }
+BASE_DIR = Path(__file__).resolve().parent.parent
+LOGO_DIR = BASE_DIR / "assets" / "logos"
+
+logos = {
+    'Mumbai Indians': str(LOGO_DIR / "MI.png"),
+    'Rajasthan Royals': str(LOGO_DIR / "RR.png"),
+    'Royal Challengers Bangalore': str(LOGO_DIR / "RCB.png"),
+    'Sunrisers Hyderabad': str(LOGO_DIR / "SRH.png"),
+    'Delhi Capitals': str(LOGO_DIR / "DC.png"),
+    'Chennai Super Kings': str(LOGO_DIR / "CSK.png"),
+    'Gujarat Titans': str(LOGO_DIR / "GT.png"),
+    'Lucknow Super Giants': str(LOGO_DIR / "LSG.png"),
+    'Kolkata Knight Riders': str(LOGO_DIR / "KKR.png"),
+    'Punjab Kings': str(LOGO_DIR / "PBKS.png"),
+}
 
 
 def set_bg_hack_url():
@@ -49,7 +54,7 @@ cities = ['Ahmedabad', 'Kolkata', 'Mumbai', 'Navi Mumbai', 'Pune', 'Dubai',
           'Johannesburg', 'Centurion', 'Durban', 'Bloemfontein',
           'Port Elizabeth', 'Kimberley', 'East London', 'Cape Town']
 
-pipe = joblib.load('pipe.joblib')
+pipe = joblib.load(BASE_DIR / 'models' / 'pipe.joblib')
 
 
 st.title("IPL Winner Predictor")
@@ -100,8 +105,8 @@ if st.button("Predict Probability"):
     runs_left = target_score - current_score
     balls_left = 120 - (overs_completed*6)
     wickets_left = 10 - wickets
-    current_run_rate = current_score/overs_completed
-    required_run_rate = (runs_left*6)/balls_left
+    current_run_rate = current_score / overs_completed if overs_completed > 0 else 0
+    required_run_rate = (runs_left*6)/balls_left if balls_left > 0 else 0
 
     input_df = pd.DataFrame({'BattingTeam': [batting_team],
                              'BowlingTeam': [bowling_team],
