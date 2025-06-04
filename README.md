@@ -41,6 +41,7 @@ Then open `http://localhost:8501` in your browser.
 
 ## Data Preparation
 `src/preprocess_data.py` can be used to regenerate the training data and model. The raw CSV files should be placed in the `data/` directory.
+Pretrained models are provided under `models/` so you can run the app without rerunning preprocessing.
 
 ## Screenshots
 ![Screenshot 2](assets/screenshot2.png)
