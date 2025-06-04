@@ -8,10 +8,13 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import accuracy_score
 import joblib
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Read the ball-by-ball and matches data from CSV files
-balls = pd.read_csv('data/IPL_Ball_by_Ball_2008_2022.csv')
-matches = pd.read_csv('data/IPL_Matches_2008_2022.csv')
+balls = pd.read_csv(BASE_DIR / 'data' / 'IPL_Ball_by_Ball_2008_2022.csv')
+matches = pd.read_csv(BASE_DIR / 'data' / 'IPL_Matches_2008_2022.csv')
 
 # Calculate total score for each innings
 total_score = balls.groupby(['ID', 'innings']).sum()['total_run'].reset_index()
@@ -129,13 +132,13 @@ accuracy = accuracy_score(y_test, y_pred)
 print("Accuracy:", accuracy)
 
 # Save the pipeline (including the logistic regression model) using joblib
-joblib.dump(pipe, "pipe.joblib")
+joblib.dump(pipe, BASE_DIR / "models" / "pipe.joblib")
 # Save the ColumnTransformer using joblib
-joblib.dump(trf, "column_transformer.joblib")
+joblib.dump(trf, BASE_DIR / "models" / "column_transformer.joblib")
 
 
 # export final_df to csv
-final_df.to_csv('final_df.csv', index=False)
+final_df.to_csv(BASE_DIR / 'data' / 'final_df.csv', index=False)
 
 
 
